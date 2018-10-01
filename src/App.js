@@ -37,8 +37,6 @@ export default class App extends Component {
             rect.draw(this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit());
         }
 
-
-
         const endTime = performance.now();
         console.log("Drawing took " + (endTime - startTime) + " milliseconds.");
     }

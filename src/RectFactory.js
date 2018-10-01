@@ -2,7 +2,7 @@ import Rect from './Rect';
 
 export default class RectFactory {
 
-    rectCollection = {}
+    rectCollection = {};
 
     getRect(color) {
         let rect = this.rectCollection[color];
