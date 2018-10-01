@@ -1,22 +1,14 @@
 export default class Rect {
     color = '#000000';
-    x = 0;
-    y = 0;
-    width = 0;
-    height = 0;
 
-    constructor(color, x, y, width, height){
+    constructor(color){
         this.color = color;
-        this.x = x;
-        this.y = y;
-        this.height = height;
-        this.width = width;
     }
 
-    draw() {
+    draw(x, y, width, height) {
         let canvas = document.getElementById("myCanvas");
         let context = canvas.getContext("2d");
         context.fillStyle = this.color;
-        context.fillRect(this.x, this.y, this.width, this.height);
+        context.fillRect(x, y, width, height);
     }
 }

@@ -1,18 +1,21 @@
 import React, {Component} from 'react';
 import './App.css';
 import Rect from './Rect';
+import RectFactory from './RectFactory';
 
 const WINDOW_WIDTH = 1200;
 const WINDOW_HEIGHT = 600;
 
 export default class App extends Component {
     colors = ['#000000', '#123456', '#FF66F6', '#6666FF', '#66F066'];
+    rectFactory;
 
     constructor() {
         super();
         this.drawAllTheRectangles = this.drawAllTheRectangles.bind(this);
         this.getRandomColor = this.getRandomColor.bind(this);
         this.getRandomDigit = this.getRandomDigit.bind(this);
+        this.rectFactory = new RectFactory();
     }
 
     render() {
@@ -27,10 +30,9 @@ export default class App extends Component {
     drawAllTheRectangles() {
         const startTime = performance.now();
 
-
-        for( let i =0; i < 100000; i++) {
-            const rect = new Rect(this.getRandomColor(), this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit());
-            rect.draw();
+        for( let i =0; i < 1000000; i++) {
+            const rect = this.rectFactory.getRect(this.getRandomColor());
+            rect.draw(this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit());
         }
 
         const endTime = performance.now();
