@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Rect from './Rect';
 import RectFactory from './RectFactory';
+import Rect from './Rect';
 
 const WINDOW_WIDTH = 1200;
 const WINDOW_HEIGHT = 600;
@@ -31,9 +31,13 @@ export default class App extends Component {
         const startTime = performance.now();
 
         for( let i =0; i < 1000000; i++) {
+            // const rect = new Rect(this.getRandomColor());
             const rect = this.rectFactory.getRect(this.getRandomColor());
+
             rect.draw(this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit(), this.getRandomDigit());
         }
+
+
 
         const endTime = performance.now();
         console.log("Drawing took " + (endTime - startTime) + " milliseconds.");

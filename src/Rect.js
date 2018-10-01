@@ -3,6 +3,10 @@ export default class Rect {
 
     constructor(color){
         this.color = color;
+        let i = 0;
+        while(i < 1000) {
+            i = Math.floor(Math.random() * 1001);
+        }
     }
 
     draw(x, y, width, height) {
